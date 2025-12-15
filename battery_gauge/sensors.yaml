@@ -1,17 +1,30 @@
 sensor:
+  # Solar power sensor
   - platform: homeassistant
     id: solar_power
     entity_id: sensor.10_hammond_way_solar_power_2
 
+  # Grid power sensor
   - platform: homeassistant
     id: grid_power
     entity_id: sensor.10_hammond_way_grid_power_2
 
+  # Battery power sensor
+  - platform: homeassistant
+    id: batt_power
+    entity_id: sensor.10_hammond_way_battery_power_2
+
+  # Battery reserve level
+  - platform: homeassistant
+    id: reserve_pct
+    entity_id: number.10_hammond_way_backup_reserve_2
+
+  # Battery SoC
   - platform: homeassistant
     id: battery_pct
     entity_id: sensor.10_hammond_way_percentage_charged
     filters:
-      - delta: 0.5
+      - delta: 0.5 # only move the servo if the SoC has changed by >0.5%
     on_value:
       then:
         - servo.write:
@@ -20,15 +33,7 @@ sensor:
               float pct = x;
               if (pct < 0) pct = 0;
               if (pct > 100) pct = 100;
-              return 1.0f - (pct / 100.0f);
-
-  - platform: homeassistant
-    id: batt_power
-    entity_id: sensor.10_hammond_way_battery_power_2
-
-  - platform: homeassistant
-    id: reserve_pct
-    entity_id: number.10_hammond_way_backup_reserve_2
+              return 1.0f - (pct / 100.0f); // invert the return value so the needle goes the other way
 
 globals:
   - id: mode_state
