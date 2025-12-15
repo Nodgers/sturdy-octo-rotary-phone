@@ -6,8 +6,6 @@ This project reads live energy data from Home Assistant (battery SoC, charge/dis
 - a **positional servo** as a classic analogue battery gauge
 - an **OLED display** showing SoC, charge state, power flow, and reserve level
 
-It’s designed to feel like a real instrument rather than a twitchy dashboard.
-
 ---
 
 ## ✨ Features
@@ -45,7 +43,7 @@ It’s designed to feel like a real instrument rather than a twitchy dashboard.
 |--------|------|
 | OLED SDA | GPIO21 |
 | OLED SCL | GPIO22 |
-| Servo PWM | GPIO18 |
+| Servo PWM | GPIO23 |
 | Servo GND | GND |
 | Servo V+ | External 5 V |
 
