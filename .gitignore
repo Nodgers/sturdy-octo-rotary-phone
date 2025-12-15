@@ -1,5 +1,17 @@
-# Gitignore settings for ESPHome
-# This is an example and may include too much for your use-case.
-# You can modify this file to suit your needs.
-/.esphome/
-/secrets.yaml
+# ESPHome build/cache
+.esphome/
+.pio/
+.pioenvs/
+.pioenvs/**
+.pio/**
+*.elf
+*.bin
+
+# Secrets
+secrets.yaml
+
+# macOS junk
+.DS_Store
+
+# VS Code (optional / personal)
+battery-gauge.code-workspace
