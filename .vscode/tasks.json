@@ -1,0 +1,50 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "ESPHome: Compile (battery-gauge)",
+      "type": "shell",
+      "command": "esphome",
+      "args": ["compile", "battery-gauge.yaml"],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": [],
+      "group": "build"
+    },
+    {
+      "label": "ESPHome: Upload (battery-gauge)",
+      "type": "shell",
+      "command": "esphome",
+      "args": ["upload", "battery-gauge.yaml", "--device", "192.168.1.129"],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "ESPHome: Compile + Upload (battery-gauge)",
+      "type": "shell",
+      "dependsOrder": "sequence",
+      "dependsOn": [
+        "ESPHome: Compile (battery-gauge)",
+        "ESPHome: Upload (battery-gauge)"
+      ],
+      "problemMatcher": [],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "ESPHome: Logs (battery-gauge)",
+      "type": "shell",
+      "command": "esphome",
+      "args": ["logs", "battery-gauge.yaml", "--device", "192.168.1.129"],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": []
+    }
+  ]
+}

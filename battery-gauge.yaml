@@ -1,0 +1,6 @@
+# battery-gauge.yaml
+packages:
+  base: !include battery_gauge/base.yaml
+  servo: !include battery_gauge/servo.yaml
+  sensors: !include battery_gauge/sensors.yaml
+  display: !include battery_gauge/display.yaml

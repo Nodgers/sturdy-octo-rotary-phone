@@ -1,0 +1,31 @@
+i2c:
+  sda: GPIO21
+  scl: GPIO22
+  scan: true
+
+font:
+  - file: "gfonts://Roboto"
+    id: font_small
+    size: 14
+  - file: "gfonts://Roboto"
+    id: font_big
+    size: 28
+
+display:
+  - platform: ssd1306_i2c
+    model: "SSD1306 128x64"
+    address: 0x3C
+    update_interval: 200ms
+    lambda: |-
+      battery_gauge::draw_screen(
+        it,
+        id(font_small),
+        id(font_big),
+        id(battery_pct).state,
+        id(batt_power).state,
+        id(solar_power).state,
+        id(grid_power).state,
+        id(reserve_pct).state,
+        id(mode_state),
+        id(flow_phase)
+      );

@@ -1,0 +1,15 @@
+{
+    "configurations": [
+        {
+            "name": "Mac",
+            "includePath": [
+                "${workspaceFolder}/**"
+            ],
+            "defines": [],
+            "compileCommands": [
+                "${workspaceFolder}/.esphome/build/battery-gauge/.pioenvs/battery-gauge/compile_commands.json"
+            ]
+        }
+    ],
+    "version": 4
+}
